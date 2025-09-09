@@ -1,0 +1,318 @@
+html, body, .app, main {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow-y: overlay !important;
+   margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+@font-face {
+  font-family: "Open Sans", sans-serif;
+  src: url("https://fonts.gstatic.com/s/talent/v1/7cHmv4kpE8k3FQw.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+.scroll-arrow-btn {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 2000;
+  background: var(--gold-gradient);
+  color: var(--navy-dark);
+  border: none;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+  font-size: 2rem;
+  opacity: 0.85;
+}
+.scroll-arrow-btn:hover {
+  background: var(--gold-dark);
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.3);
+  opacity: 1;
+  transform: scale(1.08);
+}
+.arrow-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  display: inline-block;
+}
+.scroll-arrow-btn.at-bottom .arrow-icon {
+  transform: rotate(180deg);
+}
+/* Complete redesign to match Beit HaLevi aesthetic - dark navy background with gold accents */
+:root {
+  /* Beit HaLevi Color Palette */
+  --navy-dark: #0f1419;
+  --navy-medium: #1a2332;
+  --navy-light: #2a3441;
+  --gold-primary: #d4af37;
+  --gold-light: #f4e4a6;
+  --gold-dark: #b8941f;
+  --cream: #f8f6f0;
+  --white: #ffffff;
+
+  /* Background Gradients */
+  --main-gradient: linear-gradient(180deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
+  --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f4e4a6 50%, #b8941f 100%);
+
+  /* Shadows */
+  --gold-glow: 0 0 30px rgba(212, 175, 55, 0.3);
+  --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+
+
+
+body {
+  font-family: "Open Sans", sans-serif;
+  color: var(--cream);
+  direction: rtl;
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+  background: transparent !important;
+  border: none !important;
+}
+
+
+.app {
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: transparent !important;
+  border: none !important;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: stretch;
+  width: 100%;
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Enhanced animations matching the elegant feel */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes goldShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes floatGently {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.animate-float {
+  animation: floatGently 4s ease-in-out infinite;
+}
+
+/* Luxury button styling matching Beit HaLevi's gold elements */
+.donate-button,
+.subscribe-btn,
+.help-btn {
+  background: var(--gold-gradient);
+  color: var(--navy-dark);
+  border: none;
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--gold-glow);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.donate-button::before,
+.subscribe-btn::before,
+.help-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.donate-button:hover::before,
+.subscribe-btn:hover::before,
+.help-btn:hover::before {
+  left: 100%;
+}
+
+.donate-button:hover,
+.subscribe-btn:hover,
+.help-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(212, 175, 55, 0.4);
+}
+
+/* Card styling with navy background and gold borders */
+.card,
+.stat-card,
+.activity-card,
+.newsletter-card,
+.help-card {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: none !important;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.card:hover,
+.stat-card:hover,
+.activity-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold-primary);
+  box-shadow: var(--card-shadow), var(--gold-glow);
+}
+
+/* Input styling with navy theme */
+.email-input,
+input,
+textarea,
+.email-input {
+  background: transparent !important;
+  border: none !important;
+  color: var(--cream);
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.email-input:focus,
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+}
+
+.email-input::placeholder,
+input::placeholder,
+textarea::placeholder {
+  color: rgba(248, 246, 240, 0.6);
+}
+
+/* Link styling with gold hover effects */
+a {
+  color: var(--cream);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+a:hover {
+  color: var(--gold-primary);
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+.view-activities-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border: 2px solid var(--gold-primary);
+  border-radius: 8px;
+  color: var(--gold-primary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.view-activities-btn:hover {
+  background: var(--gold-primary);
+  color: var(--navy-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--gold-glow);
+}
+
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+  display: none;
+  width: 0 !important;
+  background: transparent !important;
+}
+::-webkit-scrollbar-track {
+  background: transparent !important;
+  border: none !important;
+}
+::-webkit-scrollbar-thumb {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+  .donate-button,
+  .subscribe-btn,
+  .help-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .card,
+  .stat-card,
+  .activity-card,
+  .newsletter-card,
+  .help-card {
+    padding: 16px;
+  }
+}

@@ -1,0 +1,654 @@
+/* Complete redesign to match Beit HaLevi's elegant dark navy and gold aesthetic */
+.home-page {
+    
+  min-height: 100vh;
+  background: linear-gradient(
+      135deg,
+      rgba(10, 15, 26, 0.85) 0%,
+      rgba(26, 35, 50, 0.75) 50%,
+      rgba(10, 15, 26, 0.9) 100%
+    ),
+    url("/singer.jpeg"); 
+  background-size: cover;
+  background-position: top center;
+  background-attachment: fixed;
+  color: #fff;
+  direction: rtl;
+  background-repeat: no-repeat;
+
+}
+
+
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.05) 0%, transparent 70%);
+  animation: shimmer 8s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+/* נוספה אנימציית חלקיקים צפים */
+.hero-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(2px 2px at 20px 30px, rgba(212, 175, 55, 0.4), transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(255, 215, 0, 0.3), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(212, 175, 55, 0.5), transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(255, 215, 0, 0.4), transparent);
+  background-repeat: repeat;
+  background-size: 150px 100px;
+  animation: float 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes shimmer {
+  0% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px) translateX(0px);
+  }
+  33% {
+    transform: translateY(-10px) translateX(5px);
+  }
+  66% {
+    transform: translateY(5px) translateX(-5px);
+  }
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+}
+
+.hero-container {
+  max-width: 900px;
+  margin: 0;
+  padding-top: 0 !important;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content {
+  margin-bottom: 3rem;
+  animation: fadeInUp 1.5s ease-out;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* טיפוגרפיה תואמת את עיצוב הטקסט העברי האלגנטי של בית הלוי */
+/* Typography matching Beit HaLevi's elegant Hebrew text styling */
+.hero-title {
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.8), 0 0 40px rgba(212, 175, 55, 0.6), 0 0 60px rgba(212, 175, 55, 0.4), 2px
+    2px 10px rgba(0, 0, 0, 0.8);
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #ffffff 0%, #f4e4a6 50%, #d4af37 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+
+
+.hero-subtitle {
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  color: #d4af37;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-shadow: 0 0 15px rgba(212, 175, 55, 0.8), 0 0 30px rgba(212, 175, 55, 0.5);
+  animation: subtitlePulse 4s ease-in-out infinite;
+}
+
+@keyframes subtitlePulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+.hero-description {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 3rem;
+  line-height: 1.8;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+  font-weight: 400;
+}
+
+/* Action buttons with gold gradient like Beit HaLevi */
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 4rem;
+  animation: buttonsSlideIn 2s ease-out 0.5s both;
+}
+
+@keyframes buttonsSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 640px) {
+  .action-buttons {
+    flex-direction: row;
+    justify-content: center;
+    gap: 3rem;
+  }
+}
+
+/* Enhanced donate button with gold shimmer effect */
+.donate-button {
+  background: linear-gradient(145deg, #d4af37 0%, #f4e4a6 25%, #d4af37 50%, #b8941f 75%, #d4af37 100%);
+  background-size: 300% 300%;
+  color: #0a0f1a;
+  border: none;
+  padding: 18px 40px;
+  border-radius: 12px;
+  font-weight: 900;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6), 0 0 40px rgba(212, 175, 55, 0.3), inset 0 1px 0
+    rgba(255, 255, 255, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  overflow: hidden;
+  transform: perspective(1000px) rotateX(0deg);
+  animation: buttonGradient 4s ease infinite, buttonFloat 6s ease-in-out infinite;
+}
+
+@keyframes buttonGradient {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes buttonFloat {
+  0%,
+  100% {
+    transform: perspective(1000px) rotateX(0deg) translateY(0px);
+  }
+  50% {
+    transform: perspective(1000px) rotateX(5deg) translateY(-5px);
+  }
+}
+
+.donate-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  transition: left 0.8s ease;
+}
+
+.donate-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  transition: all 0.6s ease;
+  border-radius: 50%;
+}
+
+.donate-button:hover::before {
+  left: 100%;
+}
+
+.donate-button:hover::after {
+  width: 200px;
+  height: 200px;
+}
+
+.donate-button:hover {
+  transform: perspective(1000px) rotateX(10deg) translateY(-8px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(212, 175, 55, 0.8), 0 0 60px rgba(212, 175, 55, 0.5), inset 0 1px 0
+    rgba(255, 255, 255, 0.5);
+}
+
+.donate-button:active {
+  transform: perspective(1000px) rotateX(5deg) translateY(-3px) scale(1.02);
+}
+
+.view-activities-btn {
+  display: inline-block;
+  padding: 18px 40px;
+  border: 2px solid #d4af37;
+  border-radius: 12px;
+  color: #d4af37;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: rgba(212, 175, 55, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3), inset 0 1px 0 rgba(212, 175, 55, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.view-activities-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(212, 175, 55, 0.1) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.view-activities-btn:hover::before {
+  transform: translateX(100%);
+}
+
+.view-activities-btn:hover {
+  background: rgba(212, 175, 55, 0.2);
+  color: #ffffff;
+  border-color: #f4e4a6;
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5), inset 0 1px 0 rgba(212, 175, 55, 0.3);
+}
+
+/* Stats grid with elegant card design */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  animation: statsSlideIn 2s ease-out 1s both;
+}
+
+@keyframes statsSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stat-card {
+  background: rgba(26, 35, 50, 0.9);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 20px;
+  padding: 2.5rem;
+  text-align: center;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 30px rgba(212, 175, 55, 0.2), inset 0 1px 0 rgba(212, 175, 55, 0.1);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  transform: perspective(1000px) rotateX(0deg);
+  overflow: hidden;
+}
+
+/* Added animated border effect */
+.stat-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #d4af37, #f4e4a6, #d4af37, transparent);
+  background-size: 200% 100%;
+  animation: borderFlow 3s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+@keyframes borderFlow {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.stat-card:hover::before {
+  opacity: 1;
+}
+
+.stat-card:hover {
+  transform: perspective(1000px) rotateX(10deg) translateY(-10px);
+  border-color: #d4af37;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 50px rgba(212, 175, 55, 0.4), inset 0 1px 0 rgba(212, 175, 55, 0.2);
+}
+
+.stat-number {
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+  line-height: 1;
+  position: relative;
+}
+
+.stat-number.primary {
+  background: linear-gradient(135deg, #d4af37 0%, #f4e4a6 50%, #d4af37 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(212, 175, 55, 0.8);
+  animation: numberGlow 2s ease-in-out infinite alternate;
+}
+
+.stat-number.secondary {
+  background: linear-gradient(135deg, #f4e4a6 0%, #ffffff 50%, #f4e4a6 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(244, 228, 166, 0.8);
+  animation: numberGlow 2s ease-in-out infinite alternate 0.5s;
+}
+
+.stat-number.accent {
+  background: linear-gradient(135deg, #b8941f 0%, #d4af37 50%, #b8941f 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(184, 148, 31, 0.8);
+  animation: numberGlow 2s ease-in-out infinite alternate 1s;
+}
+
+@keyframes numberGlow {
+  0% {
+    filter: brightness(1) drop-shadow(0 0 20px currentColor);
+  }
+  100% {
+    filter: brightness(1.3) drop-shadow(0 0 40px currentColor);
+  }
+}
+
+.stat-label {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Next activity section with navy background */
+.next-activity-section {
+  padding: 4rem 2rem;
+  background: rgba(26, 35, 50, 0.6);
+  backdrop-filter: blur(10px);
+}
+
+.activity-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: #f8f6f0;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: #d4af37;
+}
+
+.activity-card {
+  background: rgba(26, 35, 50, 0.9);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 12px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.activity-card:hover {
+  transform: translateY(-5px);
+  border-color: #d4af37;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 25px rgba(212, 175, 55, 0.2);
+}
+
+.activity-title {
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+  font-weight: 700;
+  color: #d4af37;
+  margin-bottom: 1rem;
+}
+
+.activity-description {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Newsletter section with elegant card design */
+.newsletter-section {
+  padding: 4rem 2rem;
+  background: #0f1419;
+}
+
+.newsletter-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.newsletter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.newsletter-card,
+.help-card {
+  background: rgba(26, 35, 50, 0.9);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 12px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.newsletter-card:hover,
+.help-card:hover {
+  transform: translateY(-5px);
+  border-color: #d4af37;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 25px rgba(212, 175, 55, 0.2);
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #f8f6f0;
+  margin-bottom: 1rem;
+}
+
+.card-description {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.email-input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  background: rgba(15, 20, 25, 0.8);
+  color: #f8f6f0;
+  margin-bottom: 1rem;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.email-input:focus {
+  outline: none;
+  border-color: #d4af37;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+}
+
+.email-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.subscribe-btn,
+.help-btn {
+  background: linear-gradient(135deg, #d4af37 0%, #f4e4a6 50%, #b8941f 100%);
+  color: #0f1419;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.subscribe-btn:hover,
+.help-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 35px rgba(212, 175, 55, 0.6);
+}
+
+/* Responsive design for mobile devices */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 1rem;
+    min-height: 90vh;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .donate-button,
+  .view-activities-btn {
+    padding: 15px 30px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .newsletter-card,
+  .help-card {
+    padding: 1.5rem;
+  }
+
+  .activity-card {
+    padding: 1.5rem;
+  }
+
+  .stat-card {
+    padding: 2rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+  }
+}
+
+/* Performance optimizations */
+@media (prefers-reduced-motion: reduce) {
+  .hero-section::before,
+  .hero-section::after,
+  .hero-title,
+  .hero-subtitle,
+  .donate-button,
+  .stat-card {
+    animation: none;
+  }
+
+  .donate-button:hover,
+  .stat-card:hover {
+    transform: none;
+  }
+}
