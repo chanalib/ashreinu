@@ -2,7 +2,6 @@ html, body, .app, main {
   background-color: transparent !important;
   border: none !important;
   box-shadow: none !important;
-  overflow-y: overlay !important;
    margin: 0;
   display: flex;
   place-items: center;
@@ -291,12 +290,6 @@ a:hover {
 ::-webkit-scrollbar-thumb {
   background: transparent !important;
   border: none !important;
-}
-
-/* Hide scrollbar for IE, Edge and Firefox */
-body {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
 }
 
 /* Responsive design adjustments */

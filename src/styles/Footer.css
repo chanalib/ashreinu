@@ -1,0 +1,26 @@
+.footer {
+    width: 100%;
+    background: #0f1419e8;
+    color: #dccc96;
+    text-align: center;
+    font-family: "Open Sans", Open Sans;
+    font-size: 0.7vw;
+    font-weight: 400;
+    letter-spacing: 4.1px;
+    padding: 1.2rem 0 0.7rem 0;
+    border-top: 1px solid rgba(212, 175, 55, 0.18);
+    box-shadow: 0 -2px 16px rgba(212, 175, 55, 0.08);
+    z-index: 10;
+    position: sticky;
+}
+
+.footer a {
+    color: #eac856;
+    font-weight: 300;
+    font-family: inherit;
+    transition: color 0.2s;
+}
+
+.footer a:hover {
+    color: #f2d252;
+}

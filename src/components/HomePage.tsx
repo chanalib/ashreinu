@@ -44,16 +44,19 @@ export default function HomePage() {
         <div className="hero-container">
           <div className="hero-content animate-fade-in-up">
             <h1 className="hero-title">{t("title")}</h1>
+
             <p className="hero-subtitle">{t("subtitle")}</p>
             <p className="hero-description">{t("description")}</p>
           </div>
 
           {/* Action Buttons */}
           <div className="action-buttons">
-            <button className="donate-button">{t("donate")} </button>
-            <Link to="/activities" className="view-activities-btn">
-              {t("viewActivities")}
-            </Link>
+                <Link to="/donate" className="donate-button alt-donate">
+                  תרום והיה שותף
+                </Link>
+                <Link to="/activities" className="view-activities-btn alt-activities">
+                  {t("viewActivities")}
+                </Link>
           </div>
 
           {/* Stats Section */}
