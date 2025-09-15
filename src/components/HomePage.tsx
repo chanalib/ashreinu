@@ -40,67 +40,64 @@ export default function HomePage() {
 
   return (
     <div className="home-page">
-      <section className="hero-section">
-        <div className="hero-container">
-          <div className="hero-content animate-fade-in-up">
-            <h1 className="hero-title">{t("title")}</h1>
-
-            <p className="hero-subtitle">{t("subtitle")}</p>
-            <p className="hero-description">{t("description")}</p>
+      <section className="home-hero-section">
+        <div className="home-hero-container">
+          <div className="home-hero-content animate-fade-in-up">
+            <h1 className="home-hero-title">{t("title")}</h1>
+            <p className="home-hero-subtitle">{t("subtitle")}</p>
+            <p className="home-hero-description">{t("description")}</p>
           </div>
 
           {/* Action Buttons */}
-          <div className="action-buttons">
-                <Link to="/donate" className="donate-button alt-donate">
-                  תרום והיה שותף
-                </Link>
-                <Link to="/activities" className="view-activities-btn alt-activities">
-                  {t("viewActivities")}
-                </Link>
+          <div className="home-action-buttons">
+            <button className="home-donate-button">{t("donate")} </button>
+            <Link to="/activities" className="home-view-activities-btn">
+              {t("viewActivities")}
+            </Link>
           </div>
 
           {/* Stats Section */}
-          <div className="stats-grid">
-            <div className="stat-card animate-count-up">
-              <div className="stat-number primary">{counts.students}+</div>
-              <div className="stat-label">{t("studentsHelped")}</div>
+          <div className="home-stats-grid">
+            <div className="home-stat-card animate-count-up">
+              <div className="home-stat-number home-primary">{counts.students}+</div>
+              <div className="home-stat-label">{t("studentsHelped")}</div>
             </div>
-            <div className="stat-card animate-count-up">
-              <div className="stat-number secondary">{counts.years}+</div>
-              <div className="stat-label">{t("yearsActive")}</div>
+            <div className="home-stat-card animate-count-up">
+              <div className="home-stat-number home-secondary">{counts.years}+</div>
+              <div className="home-stat-label">{t("yearsActive")}</div>
             </div>
-            <div className="stat-card animate-count-up">
-              <div className="stat-number accent">{counts.yeshivot}+</div>
-              <div className="stat-label">{t("yeshivot")}</div>
+            <div className="home-stat-card animate-count-up">
+              <div className="home-stat-number home-accent">{counts.yeshivot}+</div>
+              <div className="home-stat-label">{t("yeshivot")}</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Next Activity Section */}
-      <section className="next-activity-section">
-        <div className="activity-container">
-          <h2 className="section-title">{t("nextActivity")}</h2>
-          <div className="activity-card">
-            <h3 className="activity-title">{t("activityTitle")}</h3>
-            <p className="activity-description">{t("activityDescription")}</p>
+      <section className="home-next-activity-section">
+        <div className="home-activity-container">
+          <h2 className="home-section-title">{t("nextActivity")}</h2>
+          <div className="home-activity-card">
+            <h3 className="home-activity-title">{t("activityTitle")}</h3>
+            <p className="home-activity-description">{t("activityDescription")}</p>
           </div>
         </div>
       </section>
 
       {/* Newsletter & Help Section */}
-      <section className="newsletter-section">
-        <div className="newsletter-container">
-          <div className="newsletter-grid">
-            <div className="newsletter-card">
-              <h3 className="card-title">{t("newsletter")}</h3>
-              <input type="email" placeholder="כתובת אימייל" className="email-input" />
-              <button className="subscribe-btn">הצטרפות</button>
+      <section className="home-newsletter-section">
+        <div className="home-newsletter-container">
+          <div className="home-newsletter-grid">
+            <div className="home-newsletter-card">
+              <h3 className="home-card-title">{t("newsletter")}</h3>
+              <input type="email" placeholder="כתובת אימייל" className="home-email-input" />
+              <button className="home-subscribe-btn">הצטרפות</button>
             </div>
-            <div className="help-card">
-              <h3 className="card-title">{t("getHelp")}</h3>
-              <p className="card-description">זקוקים לעזרה? אנחנו כאן בשבילכם</p>
-              <Link to="/contact" className="help-btn">
+            <div className="home-help-card">
+              <h3 className="home-card-title">{t("getHelp")}</h3>
+              <p className="home-card-description">זקוקים לעזרה? אנחנו כאן בשבילכם</p>
+              <Link to="/contact" className="home-help-btn">
                 פנייה לעזרה
               </Link>
             </div>

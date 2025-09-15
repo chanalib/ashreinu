@@ -7,6 +7,8 @@ import { LanguageProvider } from "./components/LanguageContext"
 import "./App.css"
 import { useEffect, useState } from "react"
 import Footer from "./components/Footer"
+import ActivitiesPage from "./components/ActivitiesPage"
+import SingleActivityPage from "./components/SingleActivityPage"
 
 export default function App() {
   const [atBottom, setAtBottom] = useState(false)
@@ -41,14 +43,16 @@ export default function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
-             <Route path="/donate" element={<DonatePage />} />
-            {/* <Route path="/activities" element={<ActivitiesPage />} />
-            <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/donate" element={<DonatePage />} />
+            <Route path="/activities" element={<ActivitiesPage />} />
+            <Route path="/activity/:id" element={<SingleActivityPage />} />
+
+            {/* <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/stories" element={<StoriesPage />} />
             <Route path="/recommendations" element={<RecommendationsPage />} />
             <Route path="/contact" element={<ContactPage />} /> */}
           </Routes>
-        <Footer />
+          <Footer />
         </main>
         <button
           className={`scroll-arrow-btn${atBottom ? " at-bottom" : ""}`}
@@ -62,6 +66,6 @@ export default function App() {
       </div>
     </LanguageProvider>
   )
-        {/* Blur overlay under header when scrolled */}
-        {scrolled && <div className="blur-under-header" />}
+  {/* Blur overlay under header when scrolled */ }
+  { scrolled && <div className="blur-under-header" /> }
 }

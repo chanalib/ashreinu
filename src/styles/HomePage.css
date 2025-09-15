@@ -12,13 +12,20 @@
   color: #fff;
   direction: rtl;
   background-repeat: no-repeat;
+    /* הסתרת מוט הגלילה הלבן בדפדפנים תומכים */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+  }
 
+  /* הסתרת מוט הגלילה כרום/ספארי */
+  body::-webkit-scrollbar, .home-page::-webkit-scrollbar {
+    display: none;
   }
 
 
 
 
-.hero-section {
+.home-hero-section {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -26,9 +33,10 @@
   justify-content: flex-start;
   text-align: center;
   position: relative;
+  padding-top: 0.1rem;
 }
 
-.hero-section::before {
+.home-hero-section::before {
   content: "";
   position: absolute;
   top: 0;
@@ -43,7 +51,7 @@
 }
 
 /* נוספה אנימציית חלקיקים צפים */
-.hero-section::after {
+.home-hero-section::after {
   content: "";
   position: absolute;
   top: 0;
@@ -90,7 +98,7 @@
   }
 }
 
-.hero-container {
+.home-hero-container {
   max-width: 900px;
   margin: 0;
   padding-top: 0 !important;
@@ -98,8 +106,8 @@
   z-index: 2;
 }
 
-.hero-content {
-  margin-bottom: 3rem;
+.home-hero-content {
+  margin-bottom: 0.5rem;
   animation: fadeInUp 1.5s ease-out;
 }
 
@@ -117,7 +125,7 @@
 
 /* טיפוגרפיה תואמת את עיצוב הטקסט העברי האלגנטי של בית הלוי */
 /* Typography matching Beit HaLevi's elegant Hebrew text styling */
-.hero-title {
+.home-hero-title {
   font-size: clamp(3rem, 8vw, 5.5rem);
   font-weight: 20;
   color: #ffffff;
@@ -133,7 +141,7 @@
 
 
 
-.hero-subtitle {
+.home-hero-subtitle {
 
   font-size: clamp(1.5rem, 4vw, 2.2rem);
   color: #d4af37;
@@ -154,7 +162,7 @@
   }
 }
 
-.hero-description {
+.home-hero-description {
   font-size: clamp(1.1rem, 2.5vw, 1.4rem);
   color: rgba(255, 255, 255, 0.95);
   margin-bottom: 0.3rem;
@@ -167,7 +175,7 @@
 }
 
 
-.action-buttons {
+.home-action-buttons {
 
   display: flex;
   flex-direction: column;
@@ -178,7 +186,7 @@
 }
 
 /* תרומה - תמיד עיצוב של view-activities-btn במצב hover */
-.alt-donate {
+.home-alt-donate {
   background: rgba(212, 175, 55, 0.2) !important;
   color: #ffffff !important;
   border: 2px solid #f4e4a6 !important;
@@ -187,7 +195,7 @@
 }
 
 /* צפייה בפעילויות - תמיד עיצוב של donate-button במצב hover */
-.alt-activities {
+.home-alt-activities {
   background: linear-gradient(145deg, #d4af37 0%, #f4e4a6 25%, #d4af37 50%, #b8941f 75%, #d4af37 100%) !important;
   background-size: 300% 300% !important;
   color: #0a0f1a !important;
@@ -210,14 +218,14 @@
 
 /*רספונסיביות לכפתורים נהפכים במקום בשורה-בעמודה*/
 @media (min-width: 640px) {
-  .action-buttons {
+  .home-action-buttons {
     flex-direction: row;
     justify-content: center;
     gap: 3rem;
   }
 }
 
-.donate-button {
+.home-donate-button {
   background: linear-gradient(145deg, #d4af37 0%, #f4e4a6 25%, #d4af37 50%, #b8941f 75%, #d4af37 100%);
   background-size: 300% 300%;
   color: #0a0f1a;
@@ -237,7 +245,7 @@
   animation: buttonGradient 4s ease infinite, buttonFloat 6s ease-in-out infinite;
 }
 
-.view-activities-btn {
+.home-view-activities-btn {
   background: rgba(217, 187, 86, 0.1);
   backdrop-filter: blur(10px);
   text-align: center;
@@ -279,7 +287,7 @@
     }
   }
 
-  .donate-button::before {
+  .home-donate-button::before {
     content: "";
     display: inline-block;
     border-radius: 12px;
@@ -299,7 +307,7 @@
     transition: left 0.8s ease;
   }
 
-  .donate-button::after {
+  .home-donate-button::after {
     content: "";
     position: absolute;
     top: 50%;
@@ -312,27 +320,27 @@
     border-radius: 50%;
   }
 
-  .donate-button:hover::before {
+  .home-donate-button:hover::before {
     left: 100%;
   }
 
-  .donate-button:hover::after {
+  .home-donate-button:hover::after {
     width: 200px;
     height: 200px;
   }
 
-  .donate-button:hover {
+  .home-donate-button:hover {
     transform: perspective(1000px) rotateX(10deg) translateY(-8px) scale(1.05);
     box-shadow: 0 15px 40px rgba(212, 175, 55, 0.8), 0 0 60px rgba(212, 175, 55, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.5);
   }
 
-  .donate-button:active {
+  .home-donate-button:active {
     transform: perspective(1000px) rotateX(5deg) translateY(-3px) scale(1.02);
   }
 
 }
 
-.view-activities-btn::before {
+.home-view-activities-btn::before {
   content: "";
   position: absolute;
   top: 0;
@@ -344,11 +352,11 @@
   transition: transform 0.6s ease;
 }
 
-.view-activities-btn:hover::before {
+.home-view-activities-btn:hover::before {
   transform: translateX(100%);
 }
 
-.view-activities-btn:hover {
+.home-view-activities-btn:hover {
   background: rgba(212, 175, 55, 0.2);
   color: #ffffff;
   border-color: #f4e4a6;
@@ -357,11 +365,11 @@
   box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5), inset 0 1px 0 rgba(212, 175, 55, 0.3);
 }
 
-.card,
-.stat-card,
-.activity-card,
-.newsletter-card,
-.help-card {
+.home-card,
+.home-stat-card,
+.home-activity-card,
+.home-newsletter-card,
+.home-help-card {
   background: transparent !important;
   border: none !important;
   border-radius: 12px;
@@ -373,7 +381,7 @@
 }
 
 /* Stats grid with elegant card design */
-.stats-grid {
+.home-stats-grid {
   display: flex;
   justify-content: center;
   position: relative;
@@ -393,7 +401,7 @@
 }
 
 /* Added animated border effect */
-.stat-card::before {
+.home-stat-card::before {
   content: "";
   position: absolute;
   top: 0;
@@ -419,13 +427,13 @@
 
 
 
-.stat-card:hover {
+.home-stat-card:hover {
   transform: perspective(1000px) rotateX(10deg) translateY(-10px);
   border-color: #d4af37;
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 50px rgba(212, 175, 55, 0.4), inset 0 1px 0 rgba(212, 175, 55, 0.2);
 }
 
-.stat-number {
+.home-stat-number {
   font-size: clamp(3rem, 5vw, 4.5rem);
   font-weight: 900;
   margin-bottom: 0.5rem;
@@ -433,7 +441,7 @@
   position: relative;
 }
 
-.stat-number.primary {
+.home-stat-number.home-primary {
   background: linear-gradient(135deg, #d4af37 0%, #f4e4a6 50%, #d4af37 100%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -442,7 +450,7 @@
   animation: numberGlow 2s ease-in-out infinite alternate;
 }
 
-.stat-number.secondary {
+.home-stat-number.home-secondary {
   background: linear-gradient(135deg, #f4e4a6 0%, #ffffff 50%, #f4e4a6 100%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -451,7 +459,7 @@
   animation: numberGlow 2s ease-in-out infinite alternate 0.5s;
 }
 
-.stat-number.accent {
+.home-stat-number.home-accent {
   background: linear-gradient(135deg, #b8941f 0%, #d4af37 50%, #b8941f 100%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -470,7 +478,7 @@
   }
 }
 
-.stat-label {
+.home-stat-label {
   color: rgba(255, 255, 255, 0.9);
   font-weight: 600;
   font-size: 1.1rem;
@@ -480,20 +488,20 @@
 }
 
 /* Next activity section with navy background */
-.next-activity-section {
+.home-next-activity-section {
   margin-bottom: 10rem;
   padding: 4rem 2rem;
   background: rgba(26, 35, 50, 0.6);
   backdrop-filter: blur(10px);
 }
 
-.activity-container {
+.home-activity-container {
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
 }
 
-.section-title {
+.home-section-title {
   font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 700;
   color: #f8f6f0;
@@ -501,7 +509,7 @@
   position: relative;
 }
 
-.section-title::after {
+.home-section-title::after {
   content: "";
   position: absolute;
   bottom: -10px;
@@ -514,7 +522,7 @@
   background: #d4af37;
 }
 
-.hero-title:hover {
+.home-hero-title:hover {
   transform: scale(1.07);
   text-shadow:
     0 0 30px #d4af37,
@@ -525,7 +533,7 @@
 
 }
 
-.activity-card {
+.home-activity-card {
   background: rgba(26, 35, 50, 0.9);
   border: 1px solid rgba(212, 175, 55, 0.3);
   border-radius: 12px;
@@ -535,44 +543,44 @@
   transition: all 0.3s ease;
 }
 
-.activity-card:hover {
+.home-activity-card:hover {
   transform: translateY(-5px);
   border-color: #d4af37;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 25px rgba(212, 175, 55, 0.2);
 }
 
-.activity-title {
+.home-activity-title {
   font-size: clamp(1.25rem, 3vw, 1.5rem);
   font-weight: 700;
   color: #d4af37;
   margin-bottom: 1rem;
 }
 
-.activity-description {
+.home-activity-description {
   color: rgba(255, 255, 255, 0.9);
   font-size: 1rem;
   line-height: 1.6;
 }
 
 /* Newsletter section with elegant card design */
-.newsletter-section {
+.home-newsletter-section {
   padding: 4rem 2rem;
   background: #0f1419;
 }
 
-.newsletter-container {
+.home-newsletter-container {
   max-width: 1000px;
   margin: 0 auto;
 }
 
-.newsletter-grid {
+.home-newsletter-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
 }
 
-.newsletter-card,
-.help-card {
+.home-newsletter-card,
+.home-help-card {
   background: rgba(26, 35, 50, 0.9);
   border: 1px solid rgba(212, 175, 55, 0.3);
   border-radius: 12px;
@@ -583,27 +591,27 @@
   text-align: center;
 }
 
-.newsletter-card:hover,
-.help-card:hover {
+.home-newsletter-card:hover,
+.home-help-card:hover {
   transform: translateY(-5px);
   border-color: #d4af37;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 25px rgba(212, 175, 55, 0.2);
 }
 
-.card-title {
+.home-card-title {
   font-size: 1.5rem;
   font-weight: 700;
   color: #f8f6f0;
   margin-bottom: 1rem;
 }
 
-.card-description {
+.home-card-description {
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 1.5rem;
   line-height: 1.6;
 }
 
-.email-input {
+.home-email-input {
   width: 100%;
   padding: 12px 16px;
   border-radius: 8px;
@@ -615,18 +623,18 @@
   transition: all 0.3s ease;
 }
 
-.email-input:focus {
+.home-email-input:focus {
   outline: none;
   border-color: #d4af37;
   box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
 }
 
-.email-input::placeholder {
+.home-email-input::placeholder {
   color: rgba(255, 255, 255, 0.6);
 }
 
-.subscribe-btn,
-.help-btn {
+.home-subscribe-btn,
+.home-help-btn {
   background: linear-gradient(135deg, #d4af37 0%, #f4e4a6 50%, #b8941f 100%);
   color: #0f1419;
   border: none;
@@ -643,24 +651,24 @@
   display: inline-block;
 }
 
-.subscribe-btn:hover,
-.help-btn:hover {
+.home-subscribe-btn:hover,
+.home-help-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 35px rgba(212, 175, 55, 0.6);
 }
 
 /* Responsive design for mobile devices */
 @media (max-width: 768px) {
-  .hero-section {
+  .home-hero-section {
     padding: 1rem;
     min-height: 90vh;
   }
 
-  .stats-grid {
+  .home-stats-grid {
     min-height: 180px;
   }
 
-  .stat-card {
+  .home-stat-card {
     padding: 1.1rem 0.7rem;
     min-width: 120px;
     max-width: 90vw;
@@ -680,20 +688,20 @@
     opacity: 0.98;
     z-index: 2;
 
-    .stat-card.stat-left {
+    .home-stat-card.home-stat-left {
       bottom: 0;
       left: 2%;
     }
 
-    .action-buttons {
+    .home-action-buttons {
       display: flex;
       align-items: center;
       flex-direction: column;
       gap: 1.5rem;
     }
 
-    .donate-button,
-    .view-activities-btn {
+    .home-donate-button,
+    .home-view-activities-btn {
       padding: 15px 30px;
       font-size: 16px;
     }
@@ -701,20 +709,20 @@
 
   @media (max-width: 480px) {
 
-    .newsletter-card,
-    .help-card {
+    .home-newsletter-card,
+    .home-help-card {
       padding: 1.5rem;
     }
 
-    .activity-card {
+    .home-activity-card {
       padding: 1.5rem;
     }
 
-    .stat-card {
+    .home-stat-card {
       padding: 2rem;
     }
 
-    .hero-title {
+    .home-hero-title {
       .stats-grid {
         min-height: 180px;
       }
