@@ -93,6 +93,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
+    animation: sSlideIn 2s ease-out 0.5s both;
+
+}
+@keyframes sSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 .logo-flip-front, .logo-flip-back {
   width: 100%;
@@ -474,27 +487,10 @@
   margin-bottom: 1rem;
   position: relative;
 }
-.title-underline {
-  width: 80px;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, #d4af37, transparent);
-  margin: 0 auto;
-  position: relative;
-}
-.title-underline::after {
-  content: "";
-  position: absolute;
-  top: -2px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 8px;
-  height: 8px;
-  background: #d4af37;
-  border-radius: 50%;
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
-}
+
+
 .mission-section {
-  padding: 8rem 0;
+  padding: 3rem 0;
   position: relative;
 }
 .container {
@@ -527,8 +523,8 @@
   right: 0;
   top: 0.5rem;
   width: 4px;
-  height: 60%;
-  background: linear-gradient(180deg, #d4af37, transparent);
+  height: 100%;
+  background: linear-gradient(180deg, #d4af37);
   border-radius: 2px;
 }
 .mission-image {
@@ -568,7 +564,7 @@
   to { opacity: 1; transform: translateX(0); }
 }
 .vision-section {
-  padding: 8rem 0;
+  padding: 4rem 0;
   background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(212, 175, 55, 0.02));
 }
 .vision-card {
@@ -581,7 +577,23 @@
   position: relative;
   overflow: hidden;
   animation: scaleIn 1s ease-out;
+  
 }
+.vision-card:hover {
+  animation: vision-logoBtnPulse 2s infinite;
+}
+
+@keyframes vision-logoBtnPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 6px rgba(0, 153, 255, 0.3);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 12px rgba(230, 186, 12, 0.6);
+  }
+}
+
 .vision-card::before {
   content: "";
   position: absolute;
@@ -656,8 +668,8 @@
   0%, 100% { opacity: 0; transform: scale(0.5); }
   50% { opacity: 1; transform: scale(1); }
 }
-.stats-section {
-  padding: 8rem 0;
+.about-stats-section {
+  padding: 3rem 0;
 }
 .stats-grid {
   display: grid;
@@ -723,7 +735,7 @@
   50% { transform: scale(1.1); }
 }
 .rabbis-section {
-  padding: 8rem 0;
+  padding: 4rem 0;
   background: linear-gradient(135deg, rgba(212, 175, 55, 0.03), rgba(212, 175, 55, 0.01));
 }
 .rabbis-grid {
@@ -817,15 +829,18 @@
   border-radius: 25px;
   padding: 3rem;
   text-align: center;
-  max-width: 500px;
+  width: 80%;
   position: relative;
   overflow: hidden;
 }
 .join-title {
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 700;
   color: #d4af37;
   margin-bottom: 1rem;
+    margin-top: 1rem;
+
+
 }
 .join-text {
   font-size: 1.1rem;
@@ -951,24 +966,52 @@
   margin-left: auto;
   margin-right: auto;
 }
+
 .donate-btn-main {
-  background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #d4af37 100%);
-  border: none;
-  border-radius: 60px;
-  padding: 1.5rem 4rem;
-  font-size: 1.4rem;
+  background: rgba(217, 187, 86, 0.1);
+  backdrop-filter: blur(10px);
+  text-align: center;
+  display: inline-block;
+  padding: 18px 40px;
+  border: 2px solid #d4af37;
+  border-radius: 12px;
+  color: #d4af37;
   font-weight: 700;
-  color: #0a0f1a;
-  cursor: pointer;
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3), inset 0 1px 0 rgba(212, 175, 55, 0.2);
   position: relative;
   overflow: hidden;
-  transition: all 0.4s ease;
+      cursor: pointer;
   margin-bottom: 3rem;
-  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+  animation: buttonsSlideIn 2s ease-out 0.5s both;
+.donate-btn-main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(212, 175, 55, 0.1) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+  z-index: 1;
 }
+.donate-btn-main:hover::before {
+  transform: translateX(100%);
+}
+}
+
+
 .donate-btn-main:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 20px 50px rgba(212, 175, 55, 0.5);
+  background: rgba(212, 175, 55, 0.2);
+  color: #ffffff;
+  border-color: #f4e4a6;
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5), inset 0 1px 0 rgba(212, 175, 55, 0.3);
 }
 .btn-text {
   position: relative;

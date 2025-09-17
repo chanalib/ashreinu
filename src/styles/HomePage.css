@@ -226,10 +226,9 @@
 }
 
 .home-donate-button {
-  background: linear-gradient(145deg, #d4af37 0%, #f4e4a6 25%, #d4af37 50%, #b8941f 75%, #d4af37 100%);
-  background-size: 300% 300%;
-  color: #0a0f1a;
-  border: none;
+  background: linear-gradient(145deg, #d4af373b 0%, #f4e4a666 25%, #d4af3775 50%, #b8941f80 75%, #d4af37 100%);  background-size: 300% 300%;
+  color: #2e310b;
+  border: 2px solid #ffffff;
   padding: 18px 40px;
   border-radius: 12px;
   font-weight: 900;
@@ -328,7 +327,7 @@
     width: 200px;
     height: 200px;
   }
-
+ 
   .home-donate-button:hover {
     transform: perspective(1000px) rotateX(10deg) translateY(-8px) scale(1.05);
     box-shadow: 0 15px 40px rgba(212, 175, 55, 0.8), 0 0 60px rgba(212, 175, 55, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.5);
@@ -495,6 +494,95 @@
   backdrop-filter: blur(10px);
 }
 
+/* Main Activity Card Styles for Next Activity (copied from ActivitiesPage.css) */
+.activity-card-main.home-next-activity-card {
+  background: rgba(26, 35, 50, 0.9);
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  border-radius: 24px;
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(212, 175, 55, 0.2);
+  transition: all 0.4s ease;
+  animation: cardGlow 3s ease-in-out infinite alternate;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+@keyframes cardGlow {
+  0% {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(212, 175, 55, 0.2);
+  }
+  100% {
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5), 0 0 50px rgba(212, 175, 55, 0.3);
+  }
+}
+
+.activity-card-main.home-next-activity-card:hover .activity-image img {
+  transform: scale(1.1);
+}
+
+.activity-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.activity-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.frequency-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: linear-gradient(135deg, #d4af37, #f4e4a6);
+  color: #0a0f1a;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+}
+
+.activitys-content {
+  padding: 1.5rem;
+}
+
+.activity-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #d4af37;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  display: flex;
+  justify-content: center;
+}
+
+.activity-description {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.activity-meta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.upload-date {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
 .home-activity-container {
   max-width: 800px;
   margin: 0 auto;
@@ -576,21 +664,27 @@
 .home-newsletter-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
+  gap: 16rem;
 }
 
-.home-newsletter-card,
-.home-help-card {
-  background: rgba(26, 35, 50, 0.9);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  border-radius: 12px;
-  padding: 2rem;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
-  text-align: center;
+.home-newsletter-card, .home-help-card {
+    display: flex
+;
+    /* width: 100%; */
+    background: rgba(26, 35, 50, 0.9);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 12px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s 
+ease;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
 }
-
 .home-newsletter-card:hover,
 .home-help-card:hover {
   transform: translateY(-5px);
@@ -615,7 +709,7 @@
   width: 100%;
   padding: 12px 16px;
   border-radius: 8px;
-  border: 1px solid rgba(212, 175, 55, 0.3);
+  border: 2px solid rgb(212, 169, 27);
   background: rgba(15, 20, 25, 0.8);
   color: #f8f6f0;
   margin-bottom: 1rem;
@@ -625,7 +719,6 @@
 
 .home-email-input:focus {
   outline: none;
-  border-color: #d4af37;
   box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
 }
 

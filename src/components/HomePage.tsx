@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
 import "../styles/HomePage.css"
 import { useLanguage } from "./LanguageContext"
@@ -8,6 +9,56 @@ import { useLanguage } from "./LanguageContext"
 export default function HomePage() {
   const { t } = useLanguage()
   const [counts, setCounts] = useState({ students: 0, years: 0, yeshivot: 0 })
+  const navigate = useNavigate()
+
+  // Activities data (copied from ActivitiesPage)
+  const activities = [
+    {
+      id: 1,
+      title: "שיעור תורה שבועי",
+      description: "שיעור תורה מעמיק עם הרב המוסד, כל שבוע נושא חדש ומרתק מעולם ההלכה והאגדה",
+      image: "/1.jpg",
+      frequency: "שבועי",
+      uploadDate: "2024-01-15",
+    },
+    {
+      id: 2,
+      title: "חברותא לימוד",
+      description: "זיווג תלמידים ללימוד בחברותא, פיתוח כישורי לימוד והעמקה בסוגיות",
+      image: "/2.jpg",
+      frequency: "יומי",
+      uploadDate: "2024-02-10",
+    },
+    {
+      id: 3,
+      title: "סיוע כלכלי",
+      description: "תמיכה כלכלית לתלמידי ישיבות הזקוקים לעזרה, כולל מלגות ותמיכה בהוצאות לימוד",
+      image: "/3.jpg",
+      frequency: "חודשי",
+      uploadDate: "2024-03-05",
+    },
+    {
+      id: 4,
+      title: "ארוחות שבת",
+      description: "ארוחות שבת חמות ומזינות לתלמידים, יצירת אווירה משפחתית ותמיכה רוחנית",
+      image: "/4.jpg",
+      frequency: "שבועי",
+      uploadDate: "2024-04-20",
+    },
+    {
+      id: 5,
+      title: "ייעוץ אישי",
+      description: "ליווי אישי ותמיכה רגשית לתלמידים, פתרון בעיות אישיות והכוונה בחיים",
+      image: "/logo.png",
+      frequency: "לפי צורך",
+      uploadDate: "2024-05-12",
+    },
+  ]
+
+  // Find the most recent activity
+  const mostRecentActivity = activities.reduce((latest, activity) => {
+    return new Date(activity.uploadDate) > new Date(latest.uploadDate) ? activity : latest
+  }, activities[0])
 
   // Animated counter effect
   useEffect(() => {
@@ -50,7 +101,13 @@ export default function HomePage() {
 
           {/* Action Buttons */}
           <div className="home-action-buttons">
-            <button className="home-donate-button">{t("donate")} </button>
+            <button className="home-donate-button">  <a
+                  href="https://nedarimplus.org/?aff=ashreinu"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  תרום כעת
+                </a> </button>
             <Link to="/activities" className="home-view-activities-btn">
               {t("viewActivities")}
             </Link>
@@ -75,15 +132,29 @@ export default function HomePage() {
       </section>
 
       {/* Next Activity Section */}
-      <section className="home-next-activity-section">
-        <div className="home-activity-container">
-          <h2 className="home-section-title">{t("nextActivity")}</h2>
-          <div className="home-activity-card">
-            <h3 className="home-activity-title">{t("activityTitle")}</h3>
-            <p className="home-activity-description">{t("activityDescription")}</p>
+        <section className="home-next-activity-section">
+          <div className="home-activity-container">
+            <h2 className="home-section-title">הפעילות האחרונה</h2>
+            <div className="activity-card-main home-next-activity-card" onClick={() => navigate(`/activity/${mostRecentActivity.id}`)} style={{ cursor: "pointer" }}>
+              <div className="activity-image">
+                <img
+                  src={mostRecentActivity.image || "/placeholder.svg"}
+                  alt={mostRecentActivity.title}
+                />
+                <div className="frequency-badge">{mostRecentActivity.frequency}</div>
+              </div>
+              <div className="activitys-content">
+                <h2 className="activity-title">{mostRecentActivity.title}</h2>
+                <p className="activity-description">{mostRecentActivity.description}</p>
+                <div className="activity-meta">
+                  <span className="upload-date">
+                    הועלה: {new Date(mostRecentActivity.uploadDate).toLocaleDateString("he-IL")}
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
       {/* Newsletter & Help Section */}
       <section className="home-newsletter-section">

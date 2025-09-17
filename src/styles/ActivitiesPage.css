@@ -63,6 +63,8 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   animation: buttonGradient 4s ease infinite;
+  display: block;
+  margin: 0 auto 2rem auto;
 }
 
 .show-all-btn:hover {

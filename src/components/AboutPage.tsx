@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import "../styles/AboutPage.css"
-  export default function AboutPage() {
+export default function AboutPage() {
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
@@ -10,18 +10,39 @@ import "../styles/AboutPage.css"
   }, [])
 
   const rabbis = [
-    { name: "הרב יצחק כהן", title: "ראש ישיבה", image: "/rabbi-portrait.jpg" },
-    { name: "הרב משה לוי", title: "רב קהילה", image: "/rabbi-portrait.jpg" },
-    { name: "הרב אברהם דוד", title: "מחנך בכיר", image: "/rabbi-portrait.jpg" },
-    { name: "הרב שמואל גולד", title: "יועץ רוחני", image: "/rabbi-portrait.jpg" },
+    { name: "הרב יצחק כהן", title: "ראש ישיבה", image: "/logo.png" },
+    { name: "הרב משה לוי", title: "רב קהילה", image: "/logo.png" },
+    { name: "הרב אברהם דוד", title: "מחנך בכיר", image: "/logo.png" },
   ]
 
-  const stats = [
-    { number: "8+", label: "שנות פעילות"},
-    { number: "500+", label: "תלמידים נתמכו" },
-    { number: "15", label: "ישיבות בצרפת" },
-    { number: "100%", label: "שקיפות כספית", icon: "💎" },
-  ]
+  // HomePage stats logic
+  const [counts, setCounts] = useState({ students: 0, years: 0, yeshivot: 0 })
+
+  useEffect(() => {
+    const targets = { students: 500, years: 8, yeshivot: 15 }
+    const duration = 2000
+    const steps = 60
+
+    const increment = {
+      students: targets.students / steps,
+      years: targets.years / steps,
+      yeshivot: targets.yeshivot / steps,
+    }
+
+    let step = 0
+    const timer = setInterval(() => {
+      step++
+      setCounts({
+        students: Math.min(Math.floor(increment.students * step), targets.students),
+        years: Math.min(Math.floor(increment.years * step), targets.years),
+        yeshivot: Math.min(Math.floor(increment.yeshivot * step), targets.yeshivot),
+      })
+      if (step >= steps) {
+        clearInterval(timer)
+      }
+    }, duration / steps)
+    return () => clearInterval(timer)
+  }, [])
 
   return (
     <div className="about-page">
@@ -33,10 +54,10 @@ import "../styles/AboutPage.css"
           <div className="floating-element element-3"></div>
           <div className="floating-element element-4"></div>
         </div>
- {/* Action Buttons */}
-       
+        {/* Action Buttons */}
+
         <div className="about-hero-content">
-         
+
           <div className="logo-flip-container">
             {/* Blurred mission text background, repeated to fill all page height */}
             <div className="about-mission-bg-text">
@@ -60,17 +81,17 @@ import "../styles/AboutPage.css"
                     className="logo-action-btn logo-action-btn-left"
                     tabIndex={-1}
                   >
-                    <span>⇓<br/>לתרומה<br/>לחץ כאן</span>
+                    <span>⇓<br />לתרומה<br />לחץ כאן</span>
                   </a>
                   <a
                     href="/activities"
                     className="logo-action-btn logo-action-btn-right"
                     tabIndex={-1}
                   >
-                    <span>⇓<br/>לצפייה<br/>בפעילויות</span>
+                    <span>⇓<br />לצפייה<br />בפעילויות</span>
                   </a>
                   <div className="mission-text-flip-rect">
-                    <h2>אודות אשרינו</h2>
+                    <h2>איגוד אשרינו</h2>
                     <p>
                       אשרינו הוא ארגון ללא מטרות רווח המתמחה בתמיכה רוחנית וחומרית בתלמידי ישיבות בצרפת.<br />
                       אנו מאמינים כי השקעה בדור הצעיר היא השקעה בעתיד העם היהודי.<br />
@@ -95,15 +116,15 @@ import "../styles/AboutPage.css"
               <p className="mission-paragraph">
                 אשרינו הוא ארגון ללא מטרות רווח המתמחה בתמיכה רוחנית וחומרית בתלמידי ישיבות בצרפת. אנו מאמינים כי השקעה
                 בדור הצעיר היא השקעה בעתיד העם היהודי.
-              </p>
-              <p className="mission-paragraph">
+                <br />
+                <br />
                 במשך למעלה מ-8 שנים, אנו פועלים ללא לאות כדי להבטיח שכל תלמיד יוכל להתמקד בלימודיו ללא דאגות כלכליות,
                 ולקבל את התמיכה הרוחנית והחומרית הדרושה לו.
               </p>
             </div>
 
             <div className="mission-image">
-              <img src="/yeshiva-students-studying-torah.jpg" alt="תלמידי ישיבה" />
+              <img src="/singer.jpeg" alt="תלמידי ישיבה" />
               <div className="image-overlay"></div>
             </div>
           </div>
@@ -114,9 +135,7 @@ import "../styles/AboutPage.css"
       <section className="vision-section">
         <div className="container">
           <div className="vision-card">
-            <div className="vision-icon">
-              <span>✨</span>
-            </div>
+         
             <h2 className="vision-title">החזון שלנו</h2>
             <p className="vision-text">
               ליצור דור של תלמידי חכמים מובילים בצרפת, שיהיו מאורות לקהילותיהם ויחזקו את היהדות הצרפתית. אנו שואפים
@@ -131,18 +150,22 @@ import "../styles/AboutPage.css"
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="stats-section">
+      {/* Stats Section - HomePage style */}
+      <section className="about-stats-section">
         <div className="container">
-          <div className="stats-grid">
-            {stats.map((stat, index) => (
-              <div key={index} className={`stat-card stat-${index + 1}`}>
-                <div className="stat-icon">{stat.icon}</div>
-                <div className="stat-number">{stat.number}</div>
-                <div className="stat-label">{stat.label}</div>
-                <div className="stat-glow"></div>
-              </div>
-            ))}
+          <div className="home-stats-grid">
+            <div className="home-stat-card animate-count-up">
+              <div className="home-stat-number home-primary">{counts.students}+</div>
+              <div className="home-stat-label">תלמידים נתמכו</div>
+            </div>
+            <div className="home-stat-card animate-count-up">
+              <div className="home-stat-number home-secondary">{counts.yeshivot}+</div>
+              <div className="home-stat-label">ישיבות בצרפת</div>
+            </div>
+            <div className="home-stat-card animate-count-up">
+              <div className="home-stat-number home-accent">{counts.years}+</div>
+              <div className="home-stat-label">שנות פעילות</div>
+            </div>
           </div>
         </div>
       </section>
@@ -171,38 +194,17 @@ import "../styles/AboutPage.css"
 
           <div className="join-supporters">
             <div className="join-card">
-              <h3 className="join-title">רוצה להצטרף כתומך?</h3>
+              <h3 className="join-title">רוצה להיות שותף?</h3>
               <p className="join-text">הצטרף לקהילת התומכים שלנו וקח חלק בחיזוק הדור הבא של תלמידי החכמים</p>
-              <button className="join-btn">
-                <span>הצטרף אלינו</span>
-                <div className="btn-particles">
-                  <span className="particle"></span>
-                  <span className="particle"></span>
-                  <span className="particle"></span>
-                </div>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Donation CTA Section */}
-      <section className="donation-cta-section">
-        <div className="container">
-          <div className="cta-card">
-            <div className="cta-background">
-              <div className="cta-pattern"></div>
-            </div>
-
-            <div className="cta-content">
-              <div className="cta-icon">
-                <span>👑</span>
-              </div>
-              <h2 className="cta-title">רוצה להיות שותף?</h2>
-              <p className="cta-subtitle">הצטרף למשימה הקדושה של חיזוק תלמידי הישיבות בצרפת</p>
-
               <button className="donate-btn-main">
-                <span className="btn-text">תרום כעת</span>
+                <a
+                  className="btn-text"
+                  href="https://nedarimplus.org/?aff=ashreinu"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  תרום כעת
+                </a>
                 <div className="btn-glow"></div>
                 <div className="btn-particles-main">
                   <span className="particle-main"></span>
@@ -211,8 +213,7 @@ import "../styles/AboutPage.css"
                   <span className="particle-main"></span>
                 </div>
               </button>
-
-              <div className="cta-features">
+ <div className="cta-features">
                 <div className="feature">
                   <span className="feature-icon">🔒</span>
                   <span>תרומה מאובטחת</span>
@@ -230,6 +231,8 @@ import "../styles/AboutPage.css"
           </div>
         </div>
       </section>
+
+     
     </div>
   )
 }

@@ -65,6 +65,22 @@ export default function ActivitiesPage() {
     const [currentActivityIndex, setCurrentActivityIndex] = useState(0)
     const [showAllActivities, setShowAllActivities] = useState(false)
 
+    // Scroll to all-activities section when opened
+    const handleShowAllActivities = () => {
+        setShowAllActivities((prev) => {
+            const next = !prev
+            if (!prev && next) {
+                setTimeout(() => {
+                    const el = document.querySelector('.all-activities')
+                    if (el) {
+                        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                    }
+                }, 100)
+            }
+            return next
+        })
+    }
+
     const nextActivity = () => {
         setCurrentActivityIndex((prev) => (prev + 1) % activities.length)
     }
@@ -180,7 +196,7 @@ export default function ActivitiesPage() {
                     ))}
                 </div>
             </section>
-            <div className="activities-header"> <button className="show-all-btn" onClick={() => setShowAllActivities(!showAllActivities)}> {showAllActivities ? "הסתר פעילויות" : "הצג את כל הפעילויות"} </button> </div>
+            <div className="activities-header"> <button className="show-all-btn" onClick={handleShowAllActivities}> {showAllActivities ? "הסתר פעילויות" : "הצג את כל הפעילויות"} </button> </div>
             {/* All Activities Grid */}
             {showAllActivities && (
                 <section className="all-activities">

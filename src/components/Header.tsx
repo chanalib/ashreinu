@@ -13,6 +13,7 @@ export default function Header() {
     { key: "projects", path: "/projects" },
     { key: "stories", path: "/stories" },
     { key: "recommendations", path: "/recommendations" },
+    { key: "donate", path: "/donate" },
     { key: "contact", path: "/contact" },
   ]
 
@@ -21,9 +22,10 @@ export default function Header() {
       <div className="header-container">
         <div className="header-content">
           <div className="logo">
-            <img src="/logo.png" alt="אשרינו" />
+            <Link to="/">
+              <img src="/logo.png" alt="אשרינו" />
+            </Link>
           </div>
-
           <nav className="nav">
             {navItems.map((item) => (
               <Link
